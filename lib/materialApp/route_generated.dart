@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'custom_navigator_observer.dart';
+
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final CustomNavigatorObserver _customNavigatorObserver =
+      CustomNavigatorObserver();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +17,11 @@ class MyApp extends StatelessWidget {
       title: 'On Generate Initial Routes Demo',
       initialRoute: '/second/42',
       onGenerateInitialRoutes:
-          _onGenerateInitialRoutes, // Assign the _onGenerateInitialRoutes function to MaterialApp
+          _onGenerateInitialRoutes,
+      navigatorObservers: [
+        _customNavigatorObserver, // Add the CustomNavigatorObserver to the navigatorObservers list
+      ],
+      onUnknownRoute: _onUnknownRoute, // Assign the _onGenerateInitialRoutes function to MaterialApp
     );
   }
 
@@ -29,6 +37,11 @@ class MyApp extends StatelessWidget {
       }
     }
     return [MaterialPageRoute(builder: (context) => const HomePage())];
+  }
+  Route<dynamic> _onUnknownRoute(RouteSettings settings) {
+    return MaterialPageRoute(
+      builder: (context) => NotFoundPage(routeName: settings.name!),
+    );
   }
 }
 
@@ -57,3 +70,19 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
+class NotFoundPage extends StatelessWidget {
+  final String routeName;
+
+  const NotFoundPage({super.key, required this.routeName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Not Found')),
+      body: Center(
+        child: Text('Route "$routeName" not found.'),
+      ),
+    );
+  }
+}
+
