@@ -1,16 +1,12 @@
-# flutter_widget_series
 
-A new Flutter project.
+The Material App Widget: A Developer’s Guided Series — Part 2 : https://medium.com/@flutter.rashpinder/flutters-the-material-app-widget-a-developer-s-guided-series-part-2-21f1ef780890
 
-## Getting Started
+The Material App Widget: A Developer’s Guided Series — Part 1 : https://medium.com/@flutter.rashpinder/flutters-the-material-app-widget-a-developer-s-guided-series-part-1-cded465e6e8e
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Material App Widget:
+   1. The Material App Widget
+   2. Scaffold Key 
+   3. Navigator Key
+   4. Route Info Provider 
+   5. Custom Navigator Observable Provider
+   6. Route Generator Provider
