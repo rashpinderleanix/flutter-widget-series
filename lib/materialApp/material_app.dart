@@ -31,14 +31,6 @@ class MaterialAppWidget extends StatelessWidget {
               ),
             ),
       },
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('My Material App'),
-        ),
-        body: const Center(
-          child: Text('Hello, World!'),
-        ),
-      ),
     );
   }
 }
