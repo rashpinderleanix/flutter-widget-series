@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'materialApp/material_app.dart';
+import 'materialApp/route_factory.dart';
 
 void main() {
-  runApp(const MaterialAppWidget());
+  runApp(const MyRouteFactoryApp());
 }
 
 class MyApp extends StatelessWidget {

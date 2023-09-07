@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'back_button_dispatcher.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -16,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Route Information Provider Demo',
       routerDelegate: CustomRouterDelegate(),
+      backButtonDispatcher: CustomBackButtonDispatcher(),
       routeInformationParser: CustomRouteInformationParser(),
       routeInformationProvider:
           _customRouteInformationProvider, // Use the custom RouteInformationProvider
