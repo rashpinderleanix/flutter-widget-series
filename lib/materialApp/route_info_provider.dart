@@ -21,7 +21,15 @@ class MyApp extends StatelessWidget {
       backButtonDispatcher: CustomBackButtonDispatcher(),
       routeInformationParser: CustomRouteInformationParser(),
       routeInformationProvider:
-          _customRouteInformationProvider, // Use the custom RouteInformationProvider
+          _customRouteInformationProvider,
+        // Use the custom RouteInformationProvider
+      builder: _customAppBuilder,
+    );
+  }
+  Widget _customAppBuilder(BuildContext context, Widget? child) {
+    // Wrap the entire app in a custom widget, in this case, a SafeArea
+    return SafeArea(
+      child: child ?? const SizedBox.shrink(),
     );
   }
 }
