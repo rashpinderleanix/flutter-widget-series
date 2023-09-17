@@ -31,6 +31,41 @@ class MyApp extends StatelessWidget {
          Locale('es', 'ES'), // Spanish, Spain
         // Other locales can be added here
       ],
+      localeListResolutionCallback:
+          (List<Locale>? locales, Iterable<Locale> supportedLocales) {
+        // Your custom logic to choose the best locale
+        for (final locale in locales!) {
+          if (supportedLocales.contains(locale)) {
+            return locale;
+          }
+        }
+        // If no match is found, return the first supported locale
+        return supportedLocales.first;
+      },
+      localeResolutionCallback:
+          (Locale? locale, Iterable<Locale> supportedLocales) {
+        // Your custom logic to choose the best locale
+        if (locale == null) {
+          return supportedLocales.first;
+        }
+
+        for (final supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode &&
+              supportedLocale.countryCode == locale.countryCode) {
+            return supportedLocale;
+          }
+        }
+
+        // If no exact match is found, return the first supported locale with the same language code
+        for (final supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode) {
+            return supportedLocale;
+          }
+        }
+
+        // If no match is found, return the first supported locale
+        return supportedLocales.first;
+      },
     );
   }
 }
